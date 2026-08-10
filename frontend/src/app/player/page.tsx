@@ -185,37 +185,37 @@ export default function PlayerPage() {
 
       <main className="mx-auto max-w-7xl px-4 sm:px-8 pt-8 space-y-8 relative z-10 font-mono" suppressHydrationWarning>
         {/* Top Control Bar */}
-        <div className="flex items-center justify-between border-b-2 border-[#232736] pb-4" suppressHydrationWarning>
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b-2 border-[#232736] pb-4" suppressHydrationWarning>
           <Link
             href="/"
-            className="text-xs font-black uppercase tracking-wider inline-flex items-center gap-2 px-4 py-2 bg-[#12141c] border-2 border-[#232736] text-[#f1ede6] hover:border-white brutalist-button transition-all"
+            className="text-[10px] sm:text-xs font-black uppercase tracking-wider inline-flex items-center justify-center gap-2 px-3 sm:px-4 py-2 bg-[#12141c] border-2 border-[#232736] text-[#f1ede6] hover:border-white brutalist-button transition-all w-full sm:w-auto"
             suppressHydrationWarning
           >
-            <ArrowLeft className="h-4 w-4" suppressHydrationWarning /> RE-CALIBRATE VECTOR MATRIX
+            <ArrowLeft className="h-4 w-4 shrink-0" suppressHydrationWarning /> RE-CALIBRATE VECTOR MATRIX
           </Link>
 
-          <div className="flex items-center gap-2 text-xs text-[#f43f5e] font-black uppercase tracking-widest bg-[#1f0d14] px-3 py-1 border border-[#63182b]" suppressHydrationWarning>
-            <Activity className="h-4 w-4 animate-pulse" suppressHydrationWarning /> LIVE HARDWARE TRANSMISSION
+          <div className="flex items-center justify-center gap-2 text-[10px] sm:text-xs text-[#f43f5e] font-black uppercase tracking-widest bg-[#1f0d14] px-3 py-1.5 border border-[#63182b] w-full sm:w-auto" suppressHydrationWarning>
+            <Activity className="h-4 w-4 animate-pulse shrink-0" suppressHydrationWarning /> LIVE HARDWARE TRANSMISSION
           </div>
         </div>
 
         {currentSong ? (
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-start">
             {/* Left Column (7 Cols) */}
             <div className="lg:col-span-7 space-y-6">
               {/* Main Player Card */}
-              <div className="border-2 border-[#232736] bg-[#12141c] p-6 shadow-[6px_6px_0px_#040507] space-y-6">
+              <div className="border-2 border-[#232736] bg-[#12141c] p-4 sm:p-6 shadow-[4px_4px_0px_#040507] sm:shadow-[6px_6px_0px_#040507] space-y-6">
                 {/* Hidden YouTube Audio Engine */}
-                <div className="w-[1px] h-[1px] overflow-hidden pointer-events-none opacity-0 absolute -top-[9999px] -left-[9999px]">
+                <div className="w-px h-px overflow-hidden pointer-events-none opacity-0 absolute top-[-9999px] left-[-9999px]">
                   <div id="dedicated-yt-player" />
                 </div>
 
                 {/* Premium Hardware Turntable Deck Stage */}
-                <div className="relative py-12 flex flex-col items-center justify-center bg-gradient-to-b from-[#0b0d13] to-[#050608] border-2 border-[#232736] overflow-hidden group shadow-[inset_0_0_40px_rgba(0,0,0,0.8)]">
+                <div className="relative py-8 sm:py-12 flex flex-col items-center justify-center bg-linear-to-b from-[#0b0d13] to-[#050608] border-2 border-[#232736] overflow-hidden group shadow-[inset_0_0_40px_rgba(0,0,0,0.8)]">
                   {/* Turntable Metallic Accents & Platter */}
-                  <div className="absolute top-4 left-6 flex items-center gap-2">
+                  <div className="absolute top-3 left-3 sm:top-4 sm:left-6 flex items-center gap-2">
                     <div className="w-2.5 h-2.5 rounded-full bg-[#f43f5e] animate-ping" />
-                    <span className="text-[10px] font-black uppercase text-slate-400 tracking-widest">STEREO HI-FI 33 RPM</span>
+                    <span className="text-[9px] sm:text-[10px] font-black uppercase text-slate-400 tracking-widest">STEREO HI-FI 33 RPM</span>
                   </div>
 
                   {/* Tonearm Hardware Visual */}
@@ -225,7 +225,7 @@ export default function PlayerPage() {
                       <div className="w-2.5 h-2.5 rounded-full bg-slate-200 border border-slate-700" />
                     </div>
                     {/* Metallic Arm Shaft */}
-                    <div className="w-1.5 h-36 bg-gradient-to-r from-slate-300 via-white to-slate-400 rounded-full shadow-md" />
+                    <div className="w-1.5 h-36 bg-linear-to-r from-slate-300 via-white to-slate-400 rounded-full shadow-md" />
                     {/* Cartridge Head & Needle */}
                     <div className="w-4 h-7 bg-[#f43f5e] rounded-sm border border-white shadow-lg flex items-end justify-center pb-0.5 -mt-0.5">
                       <div className="w-1.5 h-1.5 bg-yellow-300 rounded-full" />
@@ -233,9 +233,9 @@ export default function PlayerPage() {
                   </div>
 
                   {/* Spinning Vinyl Hardware Deck */}
-                  <div className="relative h-72 w-72 sm:h-80 sm:w-80 rounded-full border-8 border-[#1a1d2b] bg-black shadow-[0_0_50px_rgba(0,0,0,0.95)] flex items-center justify-center overflow-hidden">
+                  <div className="relative h-56 w-56 xs:h-64 xs:w-64 sm:h-80 sm:w-80 rounded-full border-4 sm:border-8 border-[#1a1d2b] bg-black shadow-[0_0_50px_rgba(0,0,0,0.95)] flex items-center justify-center overflow-hidden my-4">
                     {/* Glossy Metallic Vinyl Reflection */}
-                    <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent pointer-events-none z-10 rounded-full" />
+                    <div className="absolute inset-0 bg-linear-to-tr from-transparent via-white/5 to-transparent pointer-events-none z-10 rounded-full" />
 
                     {/* Realistic Micro-Grooves */}
                     <div className="absolute inset-2 rounded-full border border-slate-800/90 pointer-events-none" />
@@ -245,7 +245,7 @@ export default function PlayerPage() {
                     <div className="absolute inset-16 rounded-full border border-slate-800/30 pointer-events-none" />
 
                     {/* Spinning Album Art Center Label */}
-                    <div className={`relative h-40 w-40 sm:h-44 sm:w-44 rounded-full border-4 border-[#f43f5e] overflow-hidden shadow-[0_0_20px_rgba(244,63,94,0.4)] transition-transform ${isPlaying ? 'animate-spin' : ''}`} style={{ animationDuration: '8s' }}>
+                    <div className={`relative h-28 w-28 xs:h-36 xs:w-36 sm:h-44 sm:w-44 rounded-full border-4 border-[#f43f5e] overflow-hidden shadow-[0_0_20px_rgba(244,63,94,0.4)] transition-transform ${isPlaying ? 'animate-spin' : ''}`} style={{ animationDuration: '8s' }}>
                       <img
                         src={currentSong.thumbnail_url}
                         alt={currentSong.title}

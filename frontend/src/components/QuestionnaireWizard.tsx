@@ -235,20 +235,20 @@ export default function QuestionnaireWizard({ onSubmit, isLoading }: Questionnai
               </div>
 
               {/* Playlist Count */}
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between border-2 border-[#232736] bg-[#0b0c10] p-5 gap-4">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between border-2 border-[#232736] bg-[#0b0c10] p-4 sm:p-5 gap-3">
                 <div>
                   <span className="text-xs font-bold text-white uppercase block">OUTPUT TRACK LIMIT</span>
                   <span className="text-xs text-slate-400">Select candidate count</span>
                 </div>
 
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2 overflow-x-auto pb-1 sm:pb-0">
                   {[10, 15, 20].map((count) => (
                     <button
                       type="button"
                       key={count}
                       onClick={() => setPlaylistSize(count)}
                       aria-label={`Set output track limit to ${count} songs`}
-                      className={`min-h-11 text-xs font-bold px-4 py-2 border-2 transition-all ${
+                      className={`min-h-11 text-xs font-bold px-3 sm:px-4 py-2 border-2 transition-all shrink-0 ${
                         playlistSize === count
                           ? 'border-white bg-[#f43f5e] text-white shadow-[2px_2px_0px_#000000]'
                           : 'border-[#232736] bg-[#181a25] text-slate-400 hover:border-slate-500'
@@ -264,40 +264,40 @@ export default function QuestionnaireWizard({ onSubmit, isLoading }: Questionnai
         </AnimatePresence>
 
         {/* Footer Nav Controls */}
-        <div className="mt-8 flex items-center justify-between border-t-2 border-[#232736] pt-6 font-mono">
+        <div className="mt-8 flex flex-wrap items-center justify-between gap-3 border-t-2 border-[#232736] pt-6 font-mono">
           <button
             type="button"
             onClick={handleBack}
             disabled={step === 1}
-            className={`min-h-11 text-xs font-black uppercase tracking-wider flex items-center gap-2 px-5 py-3 border-2 transition-all ${
+            className={`min-h-11 text-xs font-black uppercase tracking-wider flex items-center justify-center gap-2 px-4 sm:px-5 py-3 border-2 transition-all w-full sm:w-auto ${
               step === 1
-                ? 'opacity-0 cursor-default'
+                ? 'hidden sm:flex opacity-0 cursor-default'
                 : 'border-[#232736] bg-[#0b0c10] text-slate-300 hover:border-slate-500'
             }`}
           >
-            <ArrowLeft className="h-4 w-4" /> PREV STAGE
+            <ArrowLeft className="h-4 w-4 shrink-0" /> PREV STAGE
           </button>
 
           {step < 3 ? (
             <button
               type="button"
               onClick={handleNext}
-              className="min-h-11 text-xs font-black uppercase tracking-wider flex items-center gap-2 px-6 py-3 bg-[#f1ede6] text-black border-2 border-black hover:bg-[#f43f5e] hover:text-white brutalist-button transition-colors"
+              className="min-h-11 text-xs font-black uppercase tracking-wider flex items-center justify-center gap-2 px-6 py-3 bg-[#f1ede6] text-black border-2 border-black hover:bg-[#f43f5e] hover:text-white brutalist-button transition-colors w-full sm:w-auto"
             >
-              NEXT STAGE <ArrowRight className="h-4 w-4" />
+              NEXT STAGE <ArrowRight className="h-4 w-4 shrink-0" />
             </button>
           ) : (
             <button
               type="button"
               onClick={handleGenerateClick}
               disabled={isLoading}
-              className="min-h-11 text-xs font-black uppercase tracking-widest flex items-center gap-2 px-8 py-3.5 bg-[#f43f5e] text-white border-2 border-white brutalist-button hover:bg-rose-600 transition-colors disabled:opacity-50"
+              className="min-h-11 text-xs font-black uppercase tracking-widest flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 bg-[#f43f5e] text-white border-2 border-white brutalist-button hover:bg-rose-600 transition-colors disabled:opacity-50 w-full sm:w-auto"
             >
               {isLoading ? (
                 <span>CALCULATING VECTOR MATRIX...</span>
               ) : (
                 <>
-                  <Activity className="h-4 w-4 text-white animate-pulse" />
+                  <Activity className="h-4 w-4 text-white animate-pulse shrink-0" />
                   <span>GENERATE VECTOR PLAYLIST</span>
                 </>
               )}
