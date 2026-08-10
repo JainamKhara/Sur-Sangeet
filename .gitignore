@@ -50,3 +50,9 @@ yarn-error.log*
 # TypeScript
 *.tsbuildinfo
 next-env.d.ts
+
+# Impeccable & Product Docs
+DESIGN.md
+PRODUCT.md
+.impeccable/
+frontend/agent/
