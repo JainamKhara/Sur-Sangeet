@@ -43,13 +43,17 @@ export const usePlayerStore = create<PlayerState>((set, get) => ({
   },
 
   playSong: (index) => {
-    const { playlist } = get();
+    const { playlist, currentIndex, isPlaying } = get();
     if (index >= 0 && index < playlist.length) {
-      set({
-        currentIndex: index,
-        currentSong: playlist[index],
-        isPlaying: true,
-      });
+      if (index === currentIndex) {
+        set({ isPlaying: !isPlaying });
+      } else {
+        set({
+          currentIndex: index,
+          currentSong: playlist[index],
+          isPlaying: true,
+        });
+      }
     }
   },
 

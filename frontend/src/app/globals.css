@@ -4,12 +4,35 @@
   :root {
     --font-space: var(--font-space-grotesk), monospace;
     --font-outfit: var(--font-outfit), sans-serif;
+
+    /* Dark Mode Defaults */
+    --bg-main: #0b0c10;
+    --bg-card: #12141c;
+    --bg-surface: #050608;
+    --border-color: #232736;
+    --text-main: #f1ede6;
+    --text-muted: #94a3b8;
+    --accent-rose: #f43f5e;
+    --shadow-color: #040507;
+  }
+
+  html.light {
+    /* Pure White Studio Light Mode */
+    --bg-main: #ffffff;
+    --bg-card: #ffffff;
+    --bg-surface: #ffffff;
+    --border-color: #0f172a;
+    --text-main: #0f172a;
+    --text-muted: #0f172a;
+    --accent-rose: #e11d48;
+    --shadow-color: #0f172a;
   }
   
   body {
-    background-color: #0b0c10;
-    color: #f1ede6;
+    background-color: var(--bg-main);
+    color: var(--text-main);
     font-family: var(--font-outfit), sans-serif;
+    transition: background-color 0.2s ease, color 0.2s ease;
   }
 
   h1, h2, h3, h4, .font-heading {
@@ -18,49 +41,348 @@
   }
 }
 
-/* Organic Paper Grain Noise Background */
-.bg-grain {
-  background-image: radial-gradient(rgba(241, 237, 230, 0.07) 1px, transparent 0);
+/* ==========================================
+   PURE WHITE STUDIO LIGHT MODE OVERRIDES
+   ========================================== */
+
+html.light {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+}
+
+html.light body,
+html.light main,
+html.light section {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+}
+
+html.light .bg-grain {
+  background-image: radial-gradient(rgba(15, 23, 42, 0.08) 1px, transparent 0) !important;
   background-size: 24px 24px;
+}
+
+/* Header & Navbar Light Mode */
+html.light header {
+  background-color: #ffffff !important;
+  border-color: #0f172a !important;
+}
+
+html.light header a[href="/player"],
+html.light header button:not(.bg-\[\#f43f5e\]) {
+  background-color: #ffffff !important;
+  border: 2px solid #0f172a !important;
+  border-color: #0f172a !important;
+  color: #0f172a !important;
+}
+
+html.light header a[href="/calibrate"] {
+  background-color: #f43f5e !important;
+  border: 2px solid #0f172a !important;
+  border-color: #0f172a !important;
+  color: #ffffff !important;
+}
+
+html.light header a[href="/calibrate"] * {
+  color: #ffffff !important;
+}
+
+/* Cards & Containers in Light Mode */
+html.light .theme-bg-card,
+html.light .theme-bg-surface,
+html.light div[class*="bg-[#12141c]"],
+html.light div[class*="bg-[#0b0c10]"],
+html.light div[class*="bg-[#050608]"] {
+  background-color: #ffffff !important;
+  border-color: #0f172a !important;
+  color: #0f172a !important;
+}
+
+/* Specific Light Mode Button & Link Overrides */
+html.light a.brutalist-button:not(.bg-\[\#f43f5e\]),
+html.light button.brutalist-button:not(.bg-\[\#f43f5e\]),
+html.light a.brutalist-button[href="/player"]:not(.bg-\[\#f43f5e\]),
+html.light a.brutalist-button[href="/calibrate"]:not(.bg-\[\#f43f5e\]) {
+  background-color: #ffffff !important;
+  border-color: #0f172a !important;
+  color: #0f172a !important;
+  box-shadow: 3px 3px 0px #0f172a !important;
+}
+
+html.light a:hover:not(.bg-\[\#f43f5e\]),
+html.light button:hover:not(.bg-\[\#f43f5e\]) {
+  border-color: #e11d48 !important;
+}
+
+/* RE-CALIBRATE VECTOR MATRIX Button in Player Page */
+html.light main a[href="/"].brutalist-button {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+  border-color: #0f172a !important;
+  box-shadow: 3px 3px 0px #0f172a !important;
+}
+html.light main a[href="/"].brutalist-button * {
+  color: #0f172a !important;
+}
+
+/* Ensure Header Logo Brand Link Has NO Border or Box-Shadow */
+html.light header a.group,
+html.light header a[href="/"].group {
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+  background-color: transparent !important;
+}
+
+/* LIVE HARDWARE TRANSMISSION Badge */
+html.light div[class*="bg-[#1f0d14]"]:not(.brutalist-card),
+html.light div[class*="bg-[#1f0d14]"].border {
+  background-color: #fff1f2 !important;
+  border-color: #f43f5e !important;
+  color: #e11d48 !important;
+}
+html.light div[class*="bg-[#1f0d14]"] svg {
+  color: #e11d48 !important;
+}
+
+/* COSINE METRIC MATCH Badge */
+html.light span[class*="bg-[#0f241a]"],
+html.light div[class*="bg-[#0f241a]"] {
+  background-color: #ecfdf5 !important;
+  border-color: #10b981 !important;
+  color: #047857 !important;
+}
+
+/* Turntable Hardware Stage in Light Mode */
+html.light div[class*="from-[#0b0d13]"] {
+  background-color: #f8fafc !important;
+  background-image: linear-gradient(to bottom, #f1f5f9, #e2e8f0) !important;
+  border-color: #0f172a !important;
+}
+
+/* Vinyl Record Disc MUST REMAIN BLACK even in Light Mode */
+html.light div.rounded-full.bg-black,
+html.light div.rounded-full[class*="bg-black"],
+html.light div[class*="border-[#1a1d2b]"] {
+  background-color: #09090b !important;
+  border-color: #0f172a !important;
+}
+
+/* Vinyl Record Center Thumbnail Circle */
+html.light div.rounded-full.border-4.border-\[\#f43f5e\] {
+  background-color: #000000 !important;
+  border-color: #f43f5e !important;
+}
+
+/* Vinyl Spindle Hole Center */
+html.light div.rounded-full.bg-\[\#12141c\],
+html.light div.rounded-full[class*="bg-[#12141c]"] {
+  background-color: #0f172a !important;
+  border-color: #ffffff !important;
+}
+
+/* Telemetry & Sub-Boxes in Light Mode */
+html.light div[class*="bg-[#0b0c10]"].border {
+  background-color: #f8fafc !important;
+  border-color: #0f172a !important;
+  color: #0f172a !important;
+}
+
+/* Track Count Pill (15 TRACKS) */
+html.light span[class*="bg-[#0b0c10]"] {
+  background-color: #f1f5f9 !important;
+  border-color: #0f172a !important;
+  color: #0f172a !important;
+}
+
+/* Playlist Queue Cards in Light Mode */
+html.light .brutalist-card:not(.border-\[\#f43f5e\]) {
+  background-color: #ffffff !important;
+  border-color: #0f172a !important;
+  color: #0f172a !important;
+}
+
+/* Playing/Active SongCard in Light Mode */
+html.light .brutalist-card.border-\[\#f43f5e\] {
+  background-color: #fff1f2 !important;
+  border-color: #f43f5e !important;
+  color: #0f172a !important;
+  box-shadow: 3px 3px 0px #f43f5e !important;
+}
+
+html.light .brutalist-card.border-\[\#f43f5e\] h4 {
+  color: #e11d48 !important;
+}
+
+/* Thumbnail Box in SongCard */
+html.light div[class*="bg-black"].border-2 {
+  background-color: #0f172a !important;
+  border-color: #0f172a !important;
+}
+
+/* Preserve Multi-Color Gradient Text (POWERED BY 5D VECTOR KNN) in Light Mode */
+html.light .bg-clip-text,
+html.light span.bg-clip-text,
+html.light [class*="bg-clip-text"] {
+  background-image: linear-gradient(to right, #f43f5e, #f59e0b, #10b981) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  color: transparent !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+/* Questionnaire Option Card Icons in Light Mode */
+html.light .max-w-4xl button div[class*="bg-slate-100"],
+html.light .max-w-4xl button div[class*="bg-slate-200"],
+html.light .max-w-4xl button div[class*="bg-[#181a25]"] {
+  background-color: #f1f5f9 !important;
+  border-color: #0f172a !important;
+  color: #0f172a !important;
+}
+
+html.light .max-w-4xl button div[class*="bg-[#f43f5e]"] {
+  background-color: #f43f5e !important;
+  border-color: #0f172a !important;
+  color: #ffffff !important;
+}
+
+html.light .max-w-4xl button div[class*="bg-slate-100"] svg,
+html.light .max-w-4xl button div[class*="bg-slate-200"] svg,
+html.light .max-w-4xl button div[class*="bg-[#181a25]"] svg {
+  color: #0f172a !important;
+  stroke: #0f172a !important;
+}
+
+html.light .max-w-4xl button div[class*="bg-[#f43f5e]"] svg {
+  color: #ffffff !important;
+  stroke: #ffffff !important;
+}
+
+/* Step 3 Percentage Badges in Light Mode */
+html.light .max-w-4xl span[class*="bg-rose-100"],
+html.light .max-w-4xl span[class*="bg-[#1e2232]"] {
+  background-color: #ffe4e6 !important;
+  color: #e11d48 !important;
+  border-color: #0f172a !important;
+}
+
+html.light .max-w-4xl span[class*="bg-cyan-100"] {
+  background-color: #cffafe !important;
+  color: #0e7490 !important;
+  border-color: #0f172a !important;
+}
+
+html.light .max-w-4xl span[class*="bg-amber-100"] {
+  background-color: #fef3c7 !important;
+  color: #b45309 !important;
+  border-color: #0f172a !important;
+}
+
+/* Step 3 Track Count & Action Buttons in Light Mode */
+html.light .max-w-4xl button:not(.bg-\[\#f43f5e\]) {
+  background-color: #ffffff !important;
+  border-color: #0f172a !important;
+  color: #0f172a !important;
+}
+
+html.light .max-w-4xl button:not(.bg-\[\#f43f5e\]) * {
+  color: #0f172a !important;
+}
+
+html.light .max-w-4xl button.bg-\[\#f43f5e\] {
+  background-color: #f43f5e !important;
+  border-color: #0f172a !important;
+  color: #ffffff !important;
+}
+
+html.light .max-w-4xl button.bg-\[\#f43f5e\] * {
+  color: #ffffff !important;
+}
+
+/* Brand SUR SANGEET Colors in Light Mode */
+html.light header h1 span.text-black,
+html.light header h1 span:first-child {
+  color: #000000 !important;
+}
+
+html.light header h1 span.text-\[\#f43f5e\],
+html.light header h1 span:last-child {
+  color: #f43f5e !important;
+}
+
+/* All Text Colors in Light Mode */
+html.light h1:not(.bg-clip-text),
+html.light h2:not(.bg-clip-text),
+html.light h3:not(.bg-clip-text),
+html.light h4:not(.bg-clip-text),
+html.light .font-heading:not(.bg-clip-text) {
+  color: #0f172a !important;
+}
+
+html.light p:not(.bg-clip-text),
+html.light span:not(.bg-clip-text):not(.text-\[\#f43f5e\]):not([class*="text-[#f43f5e]"]),
+html.light [class*="dark:text-"]:not(.bg-clip-text):not([class*="text-[#f43f5e]"]),
+html.light [class*="text-[#f1ede6]"]:not(.bg-clip-text) {
+  color: #334155 !important;
+}
+
+/* Strong Accent Colors */
+html.light .text-\[\#f43f5e\],
+html.light [class*="text-[#f43f5e]"] {
+  color: #e11d48 !important;
+}
+
+html.light .bg-\[\#f43f5e\],
+html.light button.bg-\[\#f43f5e\],
+html.light a.bg-\[\#f43f5e\] {
+  background-color: #f43f5e !important;
+  color: #ffffff !important;
+  border-color: #0f172a !important;
+}
+
+html.light .bg-\[\#f43f5e\] *,
+html.light button.bg-\[\#f43f5e\] *,
+html.light a.bg-\[\#f43f5e\] * {
+  color: #ffffff !important;
 }
 
 /* Tactile Vintage Hardware Border & Shadows */
 .brutalist-card {
-  background-color: #12141c;
-  border: 2px solid #232736;
-  box-shadow: 4px 4px 0px #040507;
+  background-color: var(--bg-card);
+  border: 2px solid var(--border-color);
+  box-shadow: 4px 4px 0px var(--shadow-color);
   transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .brutalist-card:hover {
-  border-color: #f43f5e;
+  border-color: var(--accent-rose);
   transform: translate(-2px, -2px);
-  box-shadow: 6px 6px 0px #f43f5e;
+  box-shadow: 6px 6px 0px var(--accent-rose);
 }
 
 .brutalist-button {
-  border: 2px solid #232736;
-  box-shadow: 3px 3px 0px #040507;
+  border: 2px solid var(--border-color);
+  box-shadow: 3px 3px 0px var(--shadow-color);
   transition: all 0.1s ease;
 }
 
 .brutalist-button:active {
   transform: translate(2px, 2px);
-  box-shadow: 1px 1px 0px #040507;
+  box-shadow: 1px 1px 0px var(--shadow-color);
 }
 
 /* Custom Tactical Hardware Sliders */
 input[type="range"] {
   -webkit-appearance: none;
   appearance: none;
-  background: #1b1e2b;
-  border: 2px solid #282c3f;
+  background: var(--bg-surface);
+  border: 2px solid var(--border-color);
   border-radius: 4px;
   height: 12px;
 }
 
 input[type="range"]:focus-visible {
-  outline: 2px solid #f43f5e;
+  outline: 2px solid var(--accent-rose);
   outline-offset: 2px;
 }
 
@@ -70,9 +392,9 @@ input[type="range"]::-webkit-slider-thumb {
   width: 22px;
   height: 24px;
   border-radius: 2px;
-  background: #f43f5e;
-  border: 2px solid #ffffff;
-  box-shadow: 2px 2px 0px #000000;
+  background: var(--accent-rose);
+  border: 2px solid var(--text-main);
+  box-shadow: 2px 2px 0px var(--shadow-color);
   cursor: pointer;
   transition: transform 0.1s ease;
 }
@@ -83,6 +405,6 @@ input[type="range"]::-webkit-slider-thumb:hover {
 
 /* Accessibility Focus Visible Rings */
 button:focus-visible, a:focus-visible {
-  outline: 2px solid #f43f5e !important;
+  outline: 2px solid var(--accent-rose) !important;
   outline-offset: 2px !important;
 }

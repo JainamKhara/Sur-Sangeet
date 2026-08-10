@@ -32,19 +32,24 @@ export default function SongCard({ song, index }: SongCardProps) {
       onClick={handlePlay}
       className={`group flex items-center justify-between p-3 border-2 transition-all duration-150 cursor-pointer brutalist-card ${
         isCurrent
-          ? 'border-[#f43f5e] bg-[#1f0d14] text-white shadow-[3px_3px_0px_#f43f5e]'
-          : 'border-[#232736] bg-[#0b0c10] hover:border-slate-400'
+          ? 'border-[#f43f5e] bg-[#1f0d14] dark:bg-[#1f0d14] light:bg-rose-50 text-slate-900 dark:text-white shadow-[3px_3px_0px_#f43f5e]'
+          : 'border-[#232736] theme-border bg-[#0b0c10] theme-bg-surface hover:border-slate-500'
       }`}
     >
       {/* Left Details */}
       <div className="flex items-center gap-3 min-w-0">
-        <div className="relative flex h-12 w-12 shrink-0 items-center justify-center border-2 border-[#232736] bg-black overflow-hidden">
+        <div className="relative flex h-12 w-12 shrink-0 items-center justify-center border-2 border-[#232736] theme-border bg-black overflow-hidden">
           <img
-            src={song.thumbnail_url}
+            src={
+              song.thumbnail_url && song.thumbnail_url.trim() !== '' && song.thumbnail_url !== 'undefined'
+                ? song.thumbnail_url
+                : 'https://images.unsplash.com/photo-1614613535308-eb5fbd3d2c17?w=300&auto=format&fit=crop&q=80'
+            }
             alt={song.title}
             onError={(e) => {
-              // Fallback to high quality music artwork if YouTube thumbnail is broken/blocked
-              (e.target as HTMLImageElement).src = `https://images.unsplash.com/photo-1614613535308-eb5fbd3d2c17?w=300&auto=format&fit=crop&q=80`;
+              const target = e.currentTarget;
+              target.onerror = null;
+              target.src = 'https://images.unsplash.com/photo-1614613535308-eb5fbd3d2c17?w=300&auto=format&fit=crop&q=80';
             }}
             className="h-full w-full object-cover group-hover:scale-105 transition-transform"
           />
@@ -62,21 +67,21 @@ export default function SongCard({ song, index }: SongCardProps) {
         </div>
 
         <div className="min-w-0">
-          <h4 className={`truncate text-xs font-black uppercase font-heading ${isCurrent ? 'text-[#f43f5e]' : 'text-[#f1ede6]'}`}>
+          <h4 className={`truncate text-xs font-black uppercase font-heading ${isCurrent ? 'text-[#f43f5e]' : 'text-slate-900 dark:text-[#f1ede6]'}`}>
             {song.title}
           </h4>
-          <p className="truncate text-[10px] font-mono text-slate-400 mt-0.5">
-            {song.artist} <span className="text-slate-500">•</span> <span className="text-slate-300 font-bold">{song.genre || 'Soundtrack'}</span>
+          <p className="truncate text-[10px] font-mono text-slate-500 dark:text-slate-400 mt-0.5">
+            {song.artist} <span className="text-slate-400">•</span> <span className="text-slate-700 dark:text-slate-300 font-bold">{song.genre || 'Soundtrack'}</span>
           </p>
         </div>
       </div>
 
       {/* Right Section: Clean Index Number & Duration */}
       <div className="flex items-center gap-4 shrink-0 font-mono text-xs">
-        <span className={`text-xs font-black transition-colors ${isCurrent ? 'text-[#f43f5e]' : 'text-slate-500 group-hover:text-slate-300'}`}>
+        <span className={`text-xs font-black transition-colors ${isCurrent ? 'text-[#f43f5e]' : 'text-slate-500 dark:text-slate-400 group-hover:text-slate-900 dark:group-hover:text-slate-200'}`}>
           {index < 9 ? `0${index + 1}` : index + 1}
         </span>
-        <span className="text-slate-400 font-bold text-[11px] w-10 text-right">
+        <span className="text-slate-500 dark:text-slate-400 font-bold text-[11px] w-10 text-right">
           {formatDuration(song.duration)}
         </span>
       </div>
