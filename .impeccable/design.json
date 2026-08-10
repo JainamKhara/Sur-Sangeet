@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-08-10T18:27:00Z",
+  "title": "Design System: SurSangeet",
+  "extensions": {
+    "colorMeta": {
+      "primary": {
+        "role": "primary",
+        "displayName": "Rose Crimson Signal",
+        "canonical": "#f43f5e",
+        "tonalRamp": ["#4c0519", "#881337", "#be123c", "#e11d48", "#f43f5e", "#fb7185", "#fca5a5", "#ffe4e6"]
+      },
+      "neutral-bg": {
+        "role": "neutral",
+        "displayName": "Deep Console Black",
+        "canonical": "#090a0f",
+        "tonalRamp": ["#000000", "#090a0f", "#12141c", "#1c1f2e", "#282c3f", "#475569", "#94a3b8", "#f1ede6"]
+      }
+    },
+    "shadows": [
+      {
+        "name": "brutalist-hard-shadow",
+        "value": "4px 4px 0px #040507",
+        "purpose": "Tactile offset shadow on rest state."
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Tactile brutalist primary execution button.",
+      "html": "<button class=\"ds-btn-primary\">CALIBRATE VECTOR MATRIX</button>",
+      "css": ".ds-btn-primary { background-color: #f43f5e; color: #ffffff; font-family: 'Space Grotesk', monospace; font-weight: 900; text-transform: uppercase; font-size: 12px; padding: 12px 24px; border: 2px solid #ffffff; box-shadow: 4px 4px 0px #000000; cursor: pointer; transition: all 0.1s ease; } .ds-btn-primary:hover { background-color: #fb7185; } .ds-btn-primary:active { transform: translate(2px, 2px); box-shadow: 2px 2px 0px #000000; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Dark Vinyl Sanctuary",
+    "overview": "SurSangeet combines a tactile hi-fi hardware console with a dark studio atmosphere. The visual identity reflects physical audio gear: dark metal enclosures, crimson LED indicators, mechanical sliders, and a central spinning vinyl turntable with a dynamic tonearm pickup needle.",
+    "keyCharacteristics": [
+      "Tactile Brutalism: 2px solid borders (#232736), sharp corners, and 4px offset hard drop-shadows (#040507).",
+      "Signal Red Accents: Rose crimson (#f43f5e) reserved for primary action triggers and active play states.",
+      "Grain & Micro-Grooves: Radial noise backdrop with authentic vinyl micro-groove rings."
+    ],
+    "rules": [
+      {
+        "name": "The One Signal Rule",
+        "body": "Crimson (#f43f5e) is strictly reserved for active audio state indicators and primary execution triggers. It must occupy ≤ 15% of any given view.",
+        "section": "colors"
+      }
+    ],
+    "dos": [
+      "Do maintain sharp 2px borders (#232736) and hard offset shadows (#040507).",
+      "Do uppercase technical metadata text with Space Grotesk font."
+    ],
+    "donts": [
+      "Don't use soft rounded border radii (rounded-xl) on cards or buttons.",
+      "Don't use soft diffuse drop-shadows (shadow-lg)."
+    ]
+  }
+}

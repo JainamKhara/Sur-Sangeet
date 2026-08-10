@@ -1,0 +1,88 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-space: var(--font-space-grotesk), monospace;
+    --font-outfit: var(--font-outfit), sans-serif;
+  }
+  
+  body {
+    background-color: #0b0c10;
+    color: #f1ede6;
+    font-family: var(--font-outfit), sans-serif;
+  }
+
+  h1, h2, h3, h4, .font-heading {
+    font-family: var(--font-space), monospace;
+    letter-spacing: -0.03em;
+  }
+}
+
+/* Organic Paper Grain Noise Background */
+.bg-grain {
+  background-image: radial-gradient(rgba(241, 237, 230, 0.07) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+/* Tactile Vintage Hardware Border & Shadows */
+.brutalist-card {
+  background-color: #12141c;
+  border: 2px solid #232736;
+  box-shadow: 4px 4px 0px #040507;
+  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.brutalist-card:hover {
+  border-color: #f43f5e;
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px #f43f5e;
+}
+
+.brutalist-button {
+  border: 2px solid #232736;
+  box-shadow: 3px 3px 0px #040507;
+  transition: all 0.1s ease;
+}
+
+.brutalist-button:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0px #040507;
+}
+
+/* Custom Tactical Hardware Sliders */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background: #1b1e2b;
+  border: 2px solid #282c3f;
+  border-radius: 4px;
+  height: 12px;
+}
+
+input[type="range"]:focus-visible {
+  outline: 2px solid #f43f5e;
+  outline-offset: 2px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 22px;
+  height: 24px;
+  border-radius: 2px;
+  background: #f43f5e;
+  border: 2px solid #ffffff;
+  box-shadow: 2px 2px 0px #000000;
+  cursor: pointer;
+  transition: transform 0.1s ease;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  background: #fb7185;
+}
+
+/* Accessibility Focus Visible Rings */
+button:focus-visible, a:focus-visible {
+  outline: 2px solid #f43f5e !important;
+  outline-offset: 2px !important;
+}
